@@ -29,7 +29,7 @@ def draw_triangle():
     triangle.right(90)
     triangle.forward(100)
     triangle.right(225)
-    triangle.forward(150)
+    triangle.forward(145)
 
 """main program"""
 window = turtle.Screen()
