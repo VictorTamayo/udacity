@@ -9,4 +9,9 @@
     6. app to create a movie trailer website
 
 
+<<<<<<< HEAD
 ## Computer Science 101
+=======
+## CS101 Intro to Computer Science
+    1. webcrawler
+>>>>>>> ad882527545487e951c20d0557ef0452dca8627c
