@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,10 +29,53 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
+
+        // find the view that shows the numbers category
+        TextView numbers = (TextView)findViewById(R.id.numbers);
+        TextView colors = (TextView)findViewById(R.id.colors);
+        TextView familys = (TextView)findViewById(R.id.family);
+        TextView phrases = (TextView)findViewById(R.id.phrases);
+
+
+        //set a click listener on that view
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // the code in this method will be executed when the numbers View is clicked on
+                Intent numbersIntent = new Intent(MainActivity.this,NumbersActivity.class);
+                startActivity(numbersIntent);
+
+
+            }
+        });
+
+        colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent colorsIntent = new Intent(MainActivity.this,ColorsActivity.class);
+                startActivity(colorsIntent);
+            }
+        });
+
+        familys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // the code in this method will be executed when the numbers View is clicked on
+                Intent familysIntent = new Intent(MainActivity.this,FamilyActivity.class);
+                startActivity(familysIntent);
+
+
+            }
+        });
+
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent phrasesIntent = new Intent(MainActivity.this,PhrasesActivity.class);
+                startActivity(phrasesIntent);
+            }
+        });
     }
 
-    public void openNumbersList(View view) {
-        Intent numbersIntent = new Intent(this,NumbersActivity.class);
-        startActivity(numbersIntent);
-    }
+
 }
