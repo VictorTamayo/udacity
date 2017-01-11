@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
+
+    <ImageView
+        android:id="@+id/basket"
+        android:padding="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"/>
     <TextView
         android:id="@+id/miwok_text_view"
         android:paddingTop="16dp"
-        android:paddingLeft="16dp"
+        android:layout_toRightOf="@id/basket"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="lutti"/>
     <TextView
         android:id="@+id/default_text_view"
-        android:paddingLeft="16dp"
+        android:layout_below="@id/miwok_text_view"
+        android:layout_toRightOf="@id/basket"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="one"/>
 
-</LinearLayout>
+</RelativeLayout>
