@@ -1,10 +1,15 @@
 package com.example.android.miwok;
 
 import android.content.Context;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,6 +20,9 @@ import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Word> {
 
+    private int mBackgroundColor;
+    private  MediaPlayer mp;
+
 
     /***
      * This is our own custom constructor.
@@ -22,8 +30,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
      * @param context   The current context. Used to inflate the layout file.
      * @param words     A List of Word objects to display in a list.
      * */
-    public WordAdapter(Context context, ArrayList<Word> words) {
+    public WordAdapter(Context context, ArrayList<Word> words, int ActivityBackGroundColor) {
         super(context,0,words);
+        mBackgroundColor = ActivityBackGroundColor;
     }
 
     /***
@@ -44,6 +53,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
                     R.layout.list_item, parent, false);
         }
 
+
+        parent.setBackgroundColor(mBackgroundColor);
         // Get the {@link Word} object located at this position in the list.
         Word currentWord = getItem(position);
 
@@ -54,6 +65,22 @@ public class WordAdapter extends ArrayAdapter<Word> {
         TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
         defaultTextView.setText(currentWord.getDefaultTranslation());
 
+
+
+        ImageView iconImageView = (ImageView) listItemView.findViewById(R.id.image);
+        if(currentWord.hasImage()) {
+
+            iconImageView.setImageResource(currentWord.getImageResourceId());
+            iconImageView.setVisibility(View.VISIBLE);
+        }
+        else {
+            iconImageView.setVisibility(View.GONE);
+        }
+
+        // set the theme color for the list
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        int color = ContextCompat.getColor(getContext(), mBackgroundColor);
+        textContainer.setBackgroundColor(color);
         return listItemView;
     }
 }
