@@ -25,35 +25,33 @@ public class FamilyActivity extends AppCompatActivity {
     private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener =
             new AudioManager.OnAudioFocusChangeListener(){
                 public void onAudioFocusChange(int focusChange){
-                    switch(focusChange){
-                        case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT:
-                        case AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:
-                            /***
-                             *the AUDIOFOCUS_LOSS_TRANSIENT case means that we've lost audio focus for a
-                             * short amount of time. the AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK case means that
-                             * out app is allowed to continue playing sound but at a lower volume. We'll
-                             * treat both cases the same way because our app is playing short sound files.
-                             * */
 
-                            // pause Playback and reset player to the start of the file. That way, we can
-                            // play the word from the beginning when we resume playback.
-                            mMediaPlayer.pause();
-                            mMediaPlayer.seekTo(0);
-                            break;
-                        case AudioManager.AUDIOFOCUS_GAIN:
-                            //The AudioFocus_Gain case means we have regained focus and can
-                            //resume playback
-                            mMediaPlayer.start();
-                            break;
-                        case AudioManager.AUDIOFOCUS_LOSS:
-                            // The AudioFocus_Loss case means we've lost audio focus and
-                            // stop playback and cleanup resources
-                            releaseMediaPlayer();
-                            break;
-                        default:break;
+                    if(focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+                            focusChange ==AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
+                        /***
+                         *the AUDIOFOCUS_LOSS_TRANSIENT case means that we've lost audio focus for a
+                         * short amount of time. the AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK case means that
+                         * out app is allowed to continue playing sound but at a lower volume. We'll
+                         * treat both cases the same way because our app is playing short sound files.
+                         * */
 
+                        // pause Playback and reset player to the start of the file. That way, we can
+                        // play the word from the beginning when we resume playback.
+                        mMediaPlayer.pause();
+                        mMediaPlayer.seekTo(0);
                     }
-                }
+                    if(focusChange == AudioManager.AUDIOFOCUS_GAIN) {
+                        //The AudioFocus_Gain case means we have regained focus and can
+                        //resume playback
+                        mMediaPlayer.start();
+                    }
+                    if (focusChange == AudioManager.AUDIOFOCUS_LOSS){
+                        // The AudioFocus_Loss case means we've lost audio focus and
+                        // stop playback and cleanup resources
+                        releaseMediaPlayer();
+
+
+                    }}
             };
 
     /**

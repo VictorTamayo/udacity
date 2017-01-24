@@ -77,6 +77,8 @@ public class WordAdapter extends ArrayAdapter<Word> {
             iconImageView.setVisibility(View.GONE);
         }
 
+
+
         // set the theme color for the list
         View textContainer = listItemView.findViewById(R.id.text_container);
         int color = ContextCompat.getColor(getContext(), mBackgroundColor);
