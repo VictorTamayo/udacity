@@ -62,7 +62,10 @@ public final class QueryUtils {
 
                 long timeInMillis = quake.getLong("time");
 
-                earthquakes.add(new Earthquake(quake.getDouble("mag"),quake.getString("place"),timeInMillis));
+                // Extract the value for the key called "mag"
+                double magnitude =quake.getDouble("mag");
+
+                earthquakes.add(new Earthquake(magnitude,quake.getString("place"),timeInMillis));
             }
 
         } catch (JSONException e) {

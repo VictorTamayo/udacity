@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -39,11 +40,38 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
         // Get the {@link Earthquake} object located at this position in the list.
         Earthquake currentQuake = getItem(position);
 
-        TextView magnitudeTextView = (TextView)listItemView.findViewById(R.id.magnitute_text_view);
-        magnitudeTextView.setText(String.valueOf(currentQuake.getMagnituted()));
+        DecimalFormat formatter = new DecimalFormat("0.0");
+        String magFormatted = formatter.format(currentQuake.getMagnituted());
 
-        TextView locationTextView = (TextView)listItemView.findViewById(R.id.location_text_view);
-        locationTextView.setText(currentQuake.getLocation());
+        TextView magnitudeTextView = (TextView)listItemView.findViewById(R.id.magnitute_text_view);
+        magnitudeTextView.setText(String.valueOf(magFormatted));
+
+
+        // Get the current location
+        String location = currentQuake.getLocation();
+
+        // Find the location offset
+        int offsetIndex =location.indexOf("of");
+        String offssetLocation = "";
+        if (offsetIndex == -1){
+          offssetLocation = this.getContext().getResources().getString(R.string.near_the);
+
+    }else{
+
+        // Get offset location string
+        offssetLocation = location.substring(0, offsetIndex+2);
+    }
+
+
+        //Get primary location string
+        String primaryLocation = location.substring(offsetIndex+3,location.length() )
+                ;
+        TextView locationOffsetTextView = (TextView)listItemView.findViewById(R.id.location_offset_text_view);
+        locationOffsetTextView.setText(offssetLocation);
+
+        TextView locationPrimaryTextView = (TextView)listItemView.findViewById(R.id.location_primary_text_view);
+        locationPrimaryTextView.setText(primaryLocation);
+
 
         TextView dateTextView = (TextView)listItemView.findViewById(R.id.date_text_view);
         Date dateObj = new Date(currentQuake.getTimeInMilliseconds());
