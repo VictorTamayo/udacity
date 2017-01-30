@@ -48,15 +48,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\victo\Documents\GitHub\udacity\ud843\QuakeReport\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.2"
-        sha1="0cddd2fa9fde986f09f5a837dd1f8045d417e122">
-        <dex dex="C:\Users\victo\Documents\GitHub\udacity\ud843\QuakeReport\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_27b41bbb5afbc5c74cca3ea569289cc76008b165.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\victo\Documents\GitHub\udacity\ud843\QuakeReport\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.3.0\jars\libs\internal_impl-23.3.0.jar"
         jumboMode="true"
         optimize="true"
@@ -66,11 +57,20 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\victo\Documents\GitHub\udacity\ud843\QuakeReport\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.2"
+        sha1="2b9c15b817142c51f56a7c1c69c35fa3d649ce5d">
+        <dex dex="C:\Users\victo\Documents\GitHub\udacity\ud843\QuakeReport\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_27b41bbb5afbc5c74cca3ea569289cc76008b165.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\victo\Documents\GitHub\udacity\ud843\QuakeReport\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.2"
-        sha1="4e965154b809359ec354d48790328bc44a40c331">
+        sha1="de679beb1c2d2aeb5055f1eb327531057bcfcbb8">
         <dex dex="C:\Users\victo\Documents\GitHub\udacity\ud843\QuakeReport\app\build\intermediates\pre-dexed\debug\instant-run_133943d9972702aa85ed69486129f4daebd248ce.jar" />
     </item>
 
