@@ -15,3 +15,7 @@
 ## UD839 Android Basics: Multiscreen
     1. Miwok Language app
     2. Music app
+
+## UD843 Android Basics: Networking
+    1. Earthquake Report App
+    2. Soonami App
