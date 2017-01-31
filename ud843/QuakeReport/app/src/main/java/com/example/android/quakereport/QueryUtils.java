@@ -65,7 +65,10 @@ public final class QueryUtils {
                 // Extract the value for the key called "mag"
                 double magnitude =quake.getDouble("mag");
 
-                earthquakes.add(new Earthquake(magnitude,quake.getString("place"),timeInMillis));
+                // Extract the value for the key called "url"
+                String url = quake.getString("url");
+
+                earthquakes.add(new Earthquake(magnitude,quake.getString("place"),timeInMillis, url));
             }
 
         } catch (JSONException e) {
